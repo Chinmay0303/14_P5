@@ -48,17 +48,47 @@ function setup() {
 function draw() {
   
     background(220, 0, 220);
+
+    stroke(0);
+
+    fill('rgb(252, 208, 131)');
+
     ellipse(195, 75, 70, 80);
+
+    fill(10);
 
     ellipse(180, 65, 9, 18);
     ellipse(210, 65, 9, 18);
+
+    fill(255);
+
+    ellipse(180, 68, 5, 8);
+    ellipse(210, 68, 5, 8);
+
+    fill(255,0,0,150);
 
     line(195,70,195,85);
     line(195,85,200,85);
 
     ellipse(195, 100, 25, 10);
 
-    rect(134, 120, 125, 200, 50, 50);
+    fill(255,255,255);
+    stroke(0);
+
+    rect(134, 120, 125, 200);
+
+    for(let x = 135; x < 134 + 124; x += 1){
+        for(let y = 121; y < 120 + 199; y += 1){
+            stroke(x,y,0);
+            strokeWeight(1.5);
+            point(x,y);
+        }
+    }
+
+    stroke(0);
+
+    fill('rgb(255, 200, 106)');
+
     rect(85, 135, 40, 150, 100, 100);
     rect(267, 135, 40, 150, 100, 100);
     rect(145, 325, 45, 200, 100, 100);
