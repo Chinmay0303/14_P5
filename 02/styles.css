@@ -1,0 +1,79 @@
+/* ── Reset ───────────────────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Page layout: header + main + footer, no scroll ─────── */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;           /* page never scrolls */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+#header {
+    flex-shrink: 0;             /* never squish the header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 2rem;
+    border: 2px solid red;
+}
+
+/* ── Main: takes all remaining vertical space ────────────── */
+#main {
+    flex: 1 1 0;                /* grow + shrink; base = 0 so math is clean */
+
+    
+
+    min-height: 0;              /* allows flex child to shrink below content size */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    font-size: 1.5rem;
+    border: 2px solid blue;
+}
+
+/* ── Canvas container: fills remaining space inside main ─── */
+#content {
+    flex: 1 1 0;                /* takes all space left after the <p> above it */
+    min-height: 0;              /* must be able to shrink — same rule as #main */
+    border: 2px solid red;
+
+    /*
+     * Do NOT set overflow: hidden here.
+     * The canvas is always sized to exactly match this element (see sketch.js),
+     * so there is never overflow to hide.
+     */
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+#footer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border: 2px solid green;
+}
+
+/* ── Canvas ──────────────────────────────────────────────── */
+/*
+ * p5 sets width/height as inline attributes. We don't fight that.
+ * display: block removes the default inline gap below the canvas.
+ */
+canvas {
+    display: block;
+}
