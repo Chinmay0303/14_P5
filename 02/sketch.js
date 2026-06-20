@@ -10,6 +10,11 @@
  * available size independent of the canvas content.
  */
 
+let circleRadius = 50
+
+let circleX = 0
+let circleY = 0
+
 function getContentSize() {
     const el = document.getElementById("content");
     /*
@@ -46,6 +51,13 @@ function setup() {
     observer.observe(document.getElementById("content"));
 }
 
+function mousePressed(){
+    circleRadius += 5
+
+    circleX = 0
+    circleY = 0
+}
+
 function draw() {
     background(0);
 
@@ -64,7 +76,15 @@ function draw() {
     stroke("rgb(255,255,255)");
     strokeWeight(2);
 
-    ellipse(mouseX,mouseY, 45, 45);
+    ellipse(mouseX,mouseY, circleRadius);
+
+    fill("rgb(255, 238, 0)");
+    noStroke();
+
+    ellipse(circleX,circleY,50);
+
+    circleX += 1
+    circleY += 2
 
 }
 
